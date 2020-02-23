@@ -8,25 +8,9 @@ cours de *Modélisation et programmation C++* de deuxième année de l'Ensimag.
 
 Cette section introduit différents nouveaux concepts. Il faut retenir d'abord :
 * La bonne utilisation du mot clé `virtual` (indispensable)
+* Utilisation des différents opérateurs de conversion
 * Les pointeurs de fonction, de méthodes et de membres de classe (bonus)
 
-### Différence entre class et struct en C++
-
-Le mot clé `struct` en C++ représente une classe
-dont la portée par défaut est `public`, alors
-que dans une `class` la portée par défaut est privée. ([struct_vs_class])
-
-### L'héritage du C++
-
-L'héritage du C++ dispose de concepts différents.
-D'abord, l'héritage multiple est autorisé.
-
-#### Héritage multiple et problème du diamant.
-
-Pour effectuer un héritage multiple, on écrit:
-```
-class C : A, B
-```
 #### Héritage virtuel et abstractions.
 
 ##### Méthodes virtuelles.
@@ -65,7 +49,7 @@ class C : virtual A
 ```
 ### Pointeurs sur des membres de classe
 #### Fonctions et méthodes
-En C++, les fonctions sont des fonctions dites de première classe : on peut les manipuler comme des variables. [first_class_fun]
+En C++, les fonctions sont des fonctions dites de première classe : on peut les manipuler comme des variables ([first_class_fun]).
 
 Dans tout le paragraphe, `R` représente le type de retour de la fonction et `Args`
 la liste des types des arguments de la fonction concernée.
@@ -81,12 +65,13 @@ La définition de `std::function` est déclarée dans l'en-tête `functional`.
 
 Pour déclarer un pointeur vers une fonction membre, on utilise la notation
 ```
-return_type (class:*fun) (type_arg_1, type_arg_2, ...)`
+return_type (class::*fun) (type_arg_1, type_arg_2, ...)`
 ```
 ou bien avec `std::function` : `std::function<R(class*, Args)>`.
 
 #### Fixer un certains nombres de paramètres.
-La méthode `std::bind` [bind] permet de fixer un certains nombres de paramètre.
+
+La méthode `std::bind` ([bind]) permet de fixer un certains nombres de paramètre.
 Par exemple, avec `Foo:doSomething` de type `void (Foo::*)(int, int)`, considérons l'appel:
 ```
 std::function<void(int)> f = std::bind(&Foo::doSomethingArgs, this, 3, _1);
@@ -95,9 +80,10 @@ L'appel à `f(a)` à alors le même comportement
 qu'un appel à `this.doSomethingArgs(3, a)`.
 
 Les constantes pour les placeholders sont définis dans le namespace
-`placeholders` [placeholders].
+`placeholders` ([placeholders]).
 
 #### Pointeur sur un membre de classe.
+
 Plus généralement, on peut obtenir des pointeurs sur des membres de classes. La déclaration d'un tel pointeur
 s'écrit :
 ```
@@ -125,12 +111,19 @@ Data d, *dp;
     ```
     - On peut également choisir un type de cast explicite, parmi :
     ```
-        const_cast // Enlève ou rajoute le mot clé const (et enlève volatile quand cela enlève const).
-            // Comportement indéfini quand une variable déclarée constante est modifiée grâce à ce cast.
-            // Erreur à la compilation si un cast de type est également effectué.
-        dynamic_cast // Utilisé seulement pour le polymorphisme, ne fonctionne pas avec le diamant sans héritage virtuel et ne fonctionne pas sur les héritages privés ou protégés.
-        reinterpret_cast // Peut presque tout caster, très dangereux. Par exemple, permet de caster un pointeur en int.
-        static_cast // Aucune vérif, tout type sauf si il y virtual dans le bail
+        const_cast	// Enlève ou rajoute le mot clé const (et enlève
+		  	// volatile quand cela enlève const).
+            		// Comportement indéfini quand une variable déclarée
+			//  constante est modifiée grâce à ce cast.
+            		// Erreur à la compilation si un cast de type
+			// est également effectué.
+        dynamic_cast	// Utilisé seulement pour le polymorphisme, ne
+			// fonctionne pas avec le diamant sans héritage virtuel
+			// et ne fonctionne pas sur les héritages privés ou protégés.
+        reinterpret_cast	// Peut presque tout caster, très dangereux.
+			// Par exemple, permet de caster un pointeur en int.
+        static_cast 	// Aucune vérification, tout type sauf
+			// si il s'agit de classe virtuelles.
     ```
 
 ## Snippets
@@ -169,7 +162,7 @@ Data d, *dp;
     - Par défaut, les attributs sont privés.
 * Snippets/snippet-s32.cxx
     - this : pointeur
-    - *this : objet, donc on peut le renvoyer en référence d'une fonction ayant `classe &`
+    - \*this : objet, donc on peut le renvoyer en référence d'une fonction ayant `classe &`
     pour type de retour.
 * Snippets/snippet-s33a.cxx
     - Les attributs privés sont notés ici `x_` et `y_`.
