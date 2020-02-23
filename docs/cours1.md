@@ -1,4 +1,4 @@
-[Cours suivant]({{site.repository}}/cours2.html)
+[Cours suivant](cours2.md)
 # Modélisation et programmation C++, cours 1.
 
 Dans ce premier cours, on présente beaucoup de concepts nouveaux. Tous les
@@ -226,4 +226,4 @@ Options:
 [typeid]: https://stackoverflow.com/questions/4465872/why-does-typeid-name-return-weird-characters-using-gcc-and-how-to-make-it-prin
 [struct_vs_class]: https://blogs.mentor.com/colinwalls/blog/2014/06/02/struct-vs-class-in-c/
 
-[Cours suivant]({{site.repository}}/cours2.html)
+[Cours suivant](cours2.md)
