@@ -1,4 +1,10 @@
-# Cours 2 de Modélisation et programmation C++
+# Modélisation et programmation C++, cours 2.
+Dans ce cours, on aborde les points suivants :
+* Une utilisation basique de l'outil **CMake**,
+* La surcharge d'opérateur,
+* Certaines spécificités du **C++** qui le différencient du C :
+les *smart pointers*, les *références sur rvalue* et le mot clé
+*inline*.
 
 ## Outil CMake
 
@@ -58,6 +64,7 @@ Un opérateur de flux renvoie le flux pour le chaînage, on travaille par réfé
 
 Une référence de type `type&` est une référence sur une lvalue, tandis qu'une référence de type `type&&` est une référence sur une `rvalue`. Comme son nom l'indique, une référence sur rvalue permet de référencer une rvalue et donc d'y accéder plusieurs fois, sans avoir besoin de faire une copie.
 Pour obtenir une référence `rvalue` sur un objet, on utilise `std::move`.
+
 Après une utilisation de `std::move`, le contenu de l'objet initial
 n'est plus garantit (cela permet de faire des constructeurs par déplacement. Par exemple, on ne peut plus utiliser un `std::unique_ptr après avoir appelé  `std::move` dessus.
 
@@ -65,5 +72,8 @@ n'est plus garantit (cela permet de faire des constructeurs par déplacement. Pa
 
 ### Fonctions inline.
 
-En rajoutant `**inline**` devant la définition de la fonction, l'appel de fonction est remplacé par son contenu. Il faut faire très attention au parenthésage de fait. Cela évite d'utiliser la pile. 
+En rajoutant **`inline`** devant la définition de la fonction,
+l'appel de fonction est remplacé par son contenu.
+Par conséquent, il faut faire très attention au parenthésage.
+Cela évite d'utiliser la pile. 
 
