@@ -1,20 +1,36 @@
-# Modélisation et programmation C++, Cours 1.
+# Modélisation et programmation C++, cours 1.
+
+Dans ce premier cours, on présente beaucoup de concepts nouveaux. Tous les
+concepts présentés ici ont un lien, proche ou lointain avec le premier
+cours de *Modélisation et programmation C++* de deuxième année de l'Ensimag.
+
 ## Nouveaux concepts
+
+Cette section introduit différents nouveaux concepts. Il faut retenir d'abord :
+* La bonne utilisation du mot clé `virtual` (indispensable)
+* Les pointeurs de fonction, de méthodes et de membres de classe (bonus)
+
 ### Différence entre class et struct en C++
+
 Le mot clé `struct` en C++ représente une classe
 dont la portée par défaut est `public`, alors
 que dans une `class` la portée par défaut est privée. ([struct_vs_class])
+
 ### L'héritage du C++
+
 L'héritage du C++ dispose de concepts différents.
 D'abord, l'héritage multiple est autorisé.
 
 #### Héritage multiple et problème du diamant.
+
 Pour effectuer un héritage multiple, on écrit:
 ```
 class C : A, B
 ```
 #### Héritage virtuel et abstractions.
+
 ##### Méthodes virtuelles.
+
 Pour bien comprendre, il faut regarder en détail le test `Examples/virtual.cxx`.
 
 Supposons que la classe `B` hérite de `A` et considérons une méthode `m` de `A` redéfinie dans `B`.
