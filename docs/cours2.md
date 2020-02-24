@@ -1,4 +1,5 @@
 [Cours précédent]({{site.url}}/courscpp/cours1.html)
+[Cours suivant]({{site.url}}/courscpp/cours3.html)
 # Modélisation et programmation C++, cours 2.
 Dans ce cours, on aborde les points suivants :
 * Une utilisation basique de l'outil **CMake**,
@@ -79,3 +80,4 @@ Par conséquent, il faut faire très attention au parenthésage.
 Cela évite d'utiliser la pile. 
 
 [Cours précédent]({{site.url}}/courscpp/cours1.html)
+[Cours suivant]({{site.url}}/courscpp/cours3.html)
