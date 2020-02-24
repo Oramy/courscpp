@@ -17,7 +17,18 @@ Il faut donc implémenter les 5 méthodes suivantes simultanément :
 
 ### Qualificateurs `default` et `delete`
 
-À investiguer.
+À la fin de la déclaration d'une fonction membre, on peut
+rajouter un qualificateur. On écrit :`f(int) = delete;`
+
+Le qualificateur `default` permet une implémentation
+par défaut explicite. Par exemple, pour un constructeur
+sans argument, un constructeur par copie ou un destructeur.
+
+Le qualificateur `delete` supprime explicitement une fonction,
+et empêche son utilisation. Par exepmel, on peut supprimer
+le constructur par copie ou assignation, ou bien supprimer
+la possibilité d'un transtypage `double` vers `int` avec
+`f(double) = delete`;
 
 ### Autres
 
